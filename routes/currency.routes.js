@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const { addCurrency, updateCurrency, getCurrency, deleteCurrency 
-} = require('../controllers/currency.controller')
+} = require("../controllers/currency.controller")
+
 
 router.post('/', addCurrency)
 router.get('/', getCurrency)

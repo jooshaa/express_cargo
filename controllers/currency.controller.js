@@ -1,5 +1,5 @@
 const Currency = require('../models/currency_type')
-
+console.log('currenc')
 const addCurrency = async (req, res) => {
     try {
         const values = { name: req.body.name, description: req.body.description }
@@ -15,7 +15,7 @@ const addCurrency = async (req, res) => {
             error: e,
             message: "error in adding"
         })
-    }
+    } 
 }
 
 const getCurrency = async (req, res) => {
@@ -82,6 +82,7 @@ const deleteCurrency = async (req, res) => {
         })
     }
 }
+
 
 module.exports = {
     addCurrency,

@@ -1,8 +1,16 @@
+const { sendErrorResponse } = require('../helpers/send.errors.response')
 const Admin = require('../models/admin')
 const bcrypt = require('../utils/bcrypt')
 
 const addAdmin = async (req, res)=>{
-    const body = req.body
+  const {email} = req.body
+  const candidate = await Admin.findOne({where: {email}})  
+  // if(candidate){
+  //   return sendErrorResponse({ message: "parol mos emas"}, res, 400)
+  // }
+
+
+  const body = req.body
     const hashedPassword = bcrypt.hashPass(body.password)
     body.password = hashedPassword
     try{
@@ -15,8 +23,7 @@ const addAdmin = async (req, res)=>{
 
     }
     catch(e){
-        res.status(400).json({
-            error: e.message})
+      sendErrorResponse({message: 'internal server error'}, res, 500)
     }
 }
 

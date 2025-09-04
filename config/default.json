@@ -4,5 +4,10 @@
     "db_port": 5432,
     "db_username": "postgres",
     "db_password": "root",
-    "db_name": "express_cargo"
+    "db_name": "express_cargo",
+    "access_key": "myverysecret",
+    "refresh_key": "myverysecret",
+    "access_time": "15h",
+    "refresh_time": "15d",
+    "cookie_refresh_token_time": 1296000000
 }
