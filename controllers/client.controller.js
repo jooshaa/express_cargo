@@ -1,4 +1,6 @@
+const { Op } = require("sequelize");
 const Client = require("../models/client");
+const Order = require("../models/order");
 
 const addClient = async (req, res) => {
     try {
@@ -25,10 +27,19 @@ const addClient = async (req, res) => {
     }
 };
 
-const getClient = async (req, res) => {
+const getClientByQuantity = async (req, res) => {
     try {
-
-        const client = await Client.findAll()
+        const quantity =req.params.quantity
+        console.log(quantity);
+        
+        const client = await Client.findAll({
+            include: [{
+                model: Order,
+                where: {
+                    quantity: {[Op.eq]: quantity}
+                }
+            }]
+        })
 
         res.status(201).send({
             message: "Client getted",
@@ -41,6 +52,29 @@ const getClient = async (req, res) => {
     }
 };
 
+
+const getClient = async (req, res) => {
+    try {
+
+        const client = await Client.findAll({
+            include: [{
+                model: Order,
+                where: {
+                    quantity: {[Op.gt]: 1}
+                }
+            }]
+        })
+
+        res.status(201).send({
+            message: "Client getted",
+            data: client
+        });
+    }
+    catch (e) {
+        console.log(e);
+        res.status(500).send({ error: e, message: 'error in getting' })
+    }
+};
 
 const getClientById = async (req, res) => {
     try {
@@ -109,6 +143,7 @@ module.exports = {
     getClient,
     getClientById,
     updateClient,
-    deleteClient
+    deleteClient,
+    getClientByQuantity
 
 }

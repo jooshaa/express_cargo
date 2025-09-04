@@ -1,13 +1,15 @@
 const { sendErrorResponse } = require('../helpers/send.errors.response')
 const Admin = require('../models/admin')
+const Operation = require('../models/operation')
+const Order = require('../models/order')
 const bcrypt = require('../utils/bcrypt')
 
 const addAdmin = async (req, res)=>{
   const {email} = req.body
   const candidate = await Admin.findOne({where: {email}})  
-  // if(candidate){
-  //   return sendErrorResponse({ message: "parol mos emas"}, res, 400)
-  // }
+  if(candidate){
+    return sendErrorResponse({ message: "parol mos emas"}, res, 400)
+  }
 
 
   const body = req.body
@@ -30,11 +32,15 @@ const addAdmin = async (req, res)=>{
 const getAdmins = async (req, res) => {
   try {
     const admins = await Admin.findAll({
-      attributes: { exclude: ["password", "token"] }
+      attributes: { exclude: ["password", "token"], },
+
+      include: [{
+        model: Order
+      }]
     })
     res.json(admins)
   } catch (e) {
-    res.status(400).json({ error: e.message })
+    res.status(500).json({ error: e.message })
   }
 }
 

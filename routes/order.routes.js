@@ -1,4 +1,4 @@
-
+const router = require('express').Router()
 const {addOrder, getOrder, updateOrder, deleteOrder} = require("../controllers/order.controller")
 
 router.post('/', addOrder)

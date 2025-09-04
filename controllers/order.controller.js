@@ -1,12 +1,10 @@
-const Order = require("../models/client");
+const Client = require("../models/client");
+const Order = require("../models/order");
 
 const addOrder = async (req, res) => {
     try {
         const { product_link, quantity, sum, truck, description,clientId } = req.body
-        const candidate = await Order.findOne({ where: { email } });
-        if (candidate) {
-            return res.status(403).send({ message: 'user already exists' })
-        }
+        
         const newOrder = await Order.create({
             product_link,
             quantity,
@@ -103,6 +101,8 @@ const deleteOrder = async (req, res) => {
         })
     }
 }
+
+
 
 
 module.exports = {

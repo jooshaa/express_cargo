@@ -1,12 +1,12 @@
-const Operation = require("../models/client");
+const Operation = require("../models/operation");
 
 const addOperation = async (req, res) => {
     try {
         const { operation_date, description, adminId  } = req.body
-        const candidate = await Operation.findOne({ where: { email } });
-        if (candidate) {
-            return res.status(403).send({ message: 'user already exists' })
-        }
+        // const candidate = await Operation.findOne({ where: { email } });
+        // if (candidate) {
+        //     return res.status(403).send({ message: 'user already exists' })
+        // }
         const newOperation = await Operation.create({
             operation_date,
             description,
