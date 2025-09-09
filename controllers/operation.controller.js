@@ -33,11 +33,26 @@ const getOperation = async (req, res) => {
             message: "Operation getted",
             data: client
         });
+
+        //uncaughtException
+            try{
+                setTimeout(function(){
+                   throw new Error("uncaughtException example");    
+                }, 1000)
+            }catch(error){
+                console.log(error)
+            }
     }
     catch (e) {
         console.log(e);
         res.status(500).send({ error: e, message: 'error in getting' })
     }
+
+    //unhandledRejection
+
+    new Promise((_, reject)=>{
+        reject(new Error("unhandledRejection example"))
+    });
 };
 
 

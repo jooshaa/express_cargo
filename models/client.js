@@ -1,36 +1,19 @@
 const sequelize = require('../config/db')
-const { DataTypes } = require('sequelize')
+const {DataTypes} = require('sequelize')
 
-const Client = sequelize.define('client', {
+const Social = sequelize.define('social', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
     },
-    full_name: {
-        type: DataTypes.STRING(50),
+    social_name: {
+        type: DataTypes.STRING(32)
     },
-    phone_number: {
-        type: DataTypes.STRING(18),
-        unique: true,
-    },
-    email:{
-        type: DataTypes.STRING(32),
-        unique: true,
-    },
-    address:{
-        type: DataTypes.STRING,
-    },
-    location:{
-        type: DataTypes.STRING(32),
-    },
-    is_active:{
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
+    social_icon_file: {
+        type: DataTypes.STRING(255)
     }
 
-});
+})
 
-
-
-module.exports = Client;
+module.exports = Social

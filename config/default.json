@@ -9,5 +9,6 @@
     "refresh_key": "myverysecret",
     "access_time": "15h",
     "refresh_time": "15d",
-    "cookie_refresh_token_time": 1296000000
+    "cookie_refresh_token_time": 1296000000,
+    "secret": "SecretKeyFromConfig"
 }

@@ -29,6 +29,9 @@ const Admin = sequlize.define('admin', {
     tg_link:{
         type: DataTypes.STRING(72),
     },
+    role:{
+        type: DataTypes.STRING
+    },
     token:{
         type: DataTypes.STRING(92),
     },

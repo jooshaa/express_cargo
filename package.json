@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "node --watch app",
+    "dev": "cross-env NODE_ENV=development node --watch app",
+    "prod": "cross-env NODE_ENV=production prod_secret=123456789 node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,9 +16,15 @@
     "bcrypt": "^6.0.0",
     "config": "^4.1.1",
     "cookie-parser": "^1.4.7",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "express-winston": "^4.2.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.19.0",
     "pg": "^8.16.3",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "winston": "^3.17.0",
+    "winston-mongodb": "^7.0.1"
   }
 }

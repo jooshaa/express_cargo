@@ -1,0 +1,95 @@
+{
+    "date": "Mon Sep 08 2025 17:11:23 GMT+0500 (Uzbekistan Standard Time)",
+    "error": {},
+    "exception": true,
+    "label": "express cargo",
+    "level": "error",
+    "message": "uncaughtException: Cannot create property 'Symbol(level)' on string 'server started at: http://localhost:3000'\nTypeError: Cannot create property 'Symbol(level)' on string 'server started at: http://localhost:3000'\n    at DerivedLogger.log (/Users/asal/Desktop/express_cargo/node_modules/winston/lib/winston/logger.js:214:20)\n    at Server.<anonymous> (/Users/asal/Desktop/express_cargo/app.js:46:20)\n    at Server.f (/Users/asal/Desktop/express_cargo/node_modules/once/once.js:25:25)\n    at Object.onceWrapper (node:events:621:28)\n    at Server.emit (node:events:519:35)\n    at emitListeningNT (node:net:1983:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)",
+    "os": {
+        "loadavg": [
+            1.0048828125,
+            1.19970703125,
+            1.28857421875
+        ],
+        "uptime": 1114699
+    },
+    "process": {
+        "argv": [
+            "/opt/homebrew/Cellar/node/24.4.1/bin/node",
+            "/Users/asal/Desktop/express_cargo/app"
+        ],
+        "cwd": "/Users/asal/Desktop/express_cargo",
+        "execPath": "/opt/homebrew/Cellar/node/24.4.1/bin/node",
+        "gid": 20,
+        "memoryUsage": {
+            "arrayBuffers": 186129,
+            "external": 2481039,
+            "heapTotal": 54771712,
+            "heapUsed": 19665656,
+            "rss": 105103360
+        },
+        "pid": 89590,
+        "uid": 501,
+        "version": "v24.4.1"
+    },
+    "stack": "TypeError: Cannot create property 'Symbol(level)' on string 'server started at: http://localhost:3000'\n    at DerivedLogger.log (/Users/asal/Desktop/express_cargo/node_modules/winston/lib/winston/logger.js:214:20)\n    at Server.<anonymous> (/Users/asal/Desktop/express_cargo/app.js:46:20)\n    at Server.f (/Users/asal/Desktop/express_cargo/node_modules/once/once.js:25:25)\n    at Object.onceWrapper (node:events:621:28)\n    at Server.emit (node:events:519:35)\n    at emitListeningNT (node:net:1983:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)",
+    "timestamp": "2025-09-08T12:11:23.994Z",
+    "trace": [
+        {
+            "column": 20,
+            "file": "/Users/asal/Desktop/express_cargo/node_modules/winston/lib/winston/logger.js",
+            "function": "DerivedLogger.log",
+            "line": 214,
+            "method": "log",
+            "native": false
+        },
+        {
+            "column": 20,
+            "file": "/Users/asal/Desktop/express_cargo/app.js",
+            "function": null,
+            "line": 46,
+            "method": null,
+            "native": false
+        },
+        {
+            "column": 25,
+            "file": "/Users/asal/Desktop/express_cargo/node_modules/once/once.js",
+            "function": "Server.f",
+            "line": 25,
+            "method": "f",
+            "native": false
+        },
+        {
+            "column": 28,
+            "file": "node:events",
+            "function": "Object.onceWrapper",
+            "line": 621,
+            "method": "onceWrapper",
+            "native": false
+        },
+        {
+            "column": 35,
+            "file": "node:events",
+            "function": "Server.emit",
+            "line": 519,
+            "method": "emit",
+            "native": false
+        },
+        {
+            "column": 10,
+            "file": "node:net",
+            "function": "emitListeningNT",
+            "line": 1983,
+            "method": null,
+            "native": false
+        },
+        {
+            "column": 21,
+            "file": "node:internal/process/task_queues",
+            "function": "process.processTicksAndRejections",
+            "line": 89,
+            "method": "processTicksAndRejections",
+            "native": false
+        }
+    ]
+}
