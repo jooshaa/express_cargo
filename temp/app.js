@@ -10,8 +10,7 @@ const logger = require('./service/logger.service')
 // expressWinston = require('express-winston');
 const reqLogger = require('./middleware/logger/req.logger')
 const reqErrorLogger = require('./middleware/logger/error.logger')
-const viewRouter = require("./helpers/create.veiw.page")
-
+const exHbs = require("express-handlebars")
 
 
 require('dotenv').config({path: `.env.${process.env.NODE_ENV}`})
@@ -23,10 +22,10 @@ const url = "mongodb://localhost:27017/mydb";
 // logger.log(config.get('secret'));'
 
 
-// logger.log("info","LOG malumotlari")
-// logger.error("error malumotlari")
-// logger.debug("debug malumotlari")
-// logger.info("info malumotlari")
+logger.log("info","LOG malumotlari")
+logger.error("error malumotlari")
+logger.debug("debug malumotlari")
+logger.info("info malumotlari")
 
 // console.trace("trace malumotlari")
 // console.table([1,2,3])
@@ -61,7 +60,19 @@ app.use(cookieParser())
 //     }));
 
 app.use(reqLogger())
-app.use("/", viewRouter)
+
+const hbs = exHbs.create({
+    defaultLayout: "main",
+    extname: "hbs",
+})
+
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
+app.set('views', './views');
+
+//serve static
+app.use(express.static("views"))// read
+
 
 app.use('/api', indexRoute)
 
