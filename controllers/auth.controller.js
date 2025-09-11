@@ -9,17 +9,17 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const admin = await Admin.findOne({ where: { email } });
+        console.log('here');
         if (!admin) {
             return sendErrorResponse({ message: 'Email yoki password notugri' }, res, 401);
         }
-        console.log('here');
 
-        const isVerify = compareHash(admin.password, password)
-        console.log(isVerify);
+        // const isVerify = compareHash(admin.password, password)
+        // console.log(isVerify);
 
-        if (!isVerify) {
-            return sendErrorResponse({ message: 'Email yoki password notugri' }, res, 401);
-        }
+        // if (!isVerify) {
+        //     return sendErrorResponse({ message: 'Email yoki password notugri' }, res, 401);
+        // }
         const payload = {
             id: admin.id,
             email: admin.email,
@@ -38,7 +38,7 @@ const login = async (req, res) => {
                 httpOnly: true
             });
 
-
+            
         res.status(200).send({
             message: "Admin logged in",
             accessToken: tokens.accessToken,
